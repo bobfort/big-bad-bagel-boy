@@ -16,3 +16,6 @@ twitter_creds = get_twitter_credentials('/content/twitter_credentials.json')
 
 auth = tweepy.OAuthHandler(twitter_creds["API_KEY"], twitter_creds["API_KEY_SECRET"])
 auth.set_access_token(twitter_creds["ACCESS_TOKEN"], twitter_creds["ACCESS_TOKEN_SECRET"])
+
+api = tweepy.API(auth, wait_on_rate_limit=True,
+    wait_on_rate_limit_notify=True)
